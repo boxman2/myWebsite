@@ -4,11 +4,11 @@ const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username"
-const userInput= loginInput.value;
 
 function loginSubmitter(event){
   event.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME)
+  const userInput= loginInput.value;
   localStorage.setItem(USERNAME_KEY, userInput);
   greetingText(userInput)
 }
