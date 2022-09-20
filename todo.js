@@ -12,28 +12,35 @@ function saveToDos(){
 
 function eraseList(event){
     const li = event.target.parentElement;
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
     li.remove();
+    saveToDos();
 }
 
 function painting(NewToDo){
     const li = document.createElement("li");
+    li.id = NewToDo.id;
     const span = document.createElement("span");
+    span.innerText= NewToDo.text;
     const button = document.createElement("button");
-    button.innerText = "❌"
+    button.innerText = "❌";
+    button.addEventListener("click", eraseList);
     li.appendChild(span);
     li.appendChild(button);
-    button.addEventListener("click", eraseList)
     toDoList.appendChild(li);
-    span.innerText= NewToDo;
 }
 
 function toDoSubmit(event){
     event.preventDefault();
     const NewToDo = toDoInput.value;
     toDoInput.value = "";
-    toDos.push(NewToDo);
-    painting(NewToDo);
-    saveToDos(NewToDo)
+    const NewToDoOJ = {
+        text: NewToDo,
+        id : Date.now(),
+    }
+    toDos.push(NewToDoOJ);
+    painting(NewToDoOJ);
+    saveToDos()
 }
 
 toDoForm.addEventListener("submit", toDoSubmit)
