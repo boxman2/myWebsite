@@ -1,16 +1,36 @@
 .hidden {
     display : none;
   }
+
+#weather {
+  font-style: italic;
+  font-size: 12px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+#quotes {
+  font-style: italic;
+  font-size: 12px;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
 body {
-  background-size: cover;
-  background-position: center center;
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 0.5s;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+h2 {
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 img {
@@ -24,3 +44,4 @@ img {
   z-index: -1;
   opacity:90%;
 }
+
